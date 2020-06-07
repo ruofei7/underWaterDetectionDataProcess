@@ -95,30 +95,13 @@ def make_ground_truth_txt(json_path,ground_truth_path):
                     fp_ground_truth = open(os.path.join(ground_truth_path,img_name_txt), 'a')
                     fp_ground_truth.close()
 
-# class_map = {0: 'label0', 1: 'label1', 2: 'label2',3:'label3'}
-# def parse_xml(xml_path):
-#     dom = xml.dom.minidom.parse(xml_path)
-#     root = dom.documentElement
-#     objects = root.getElementsByTagName('object')
-#     gts = []
-#     for index, obj in enumerate(objects):
-#         name = obj.getElementsByTagName('name')[0].firstChild.data
-#         label = class_map[name]
-#         bndbox = obj.getElementsByTagName('bndbox')[0]
-#         x1 = int(bndbox.getElementsByTagName('xmin')[0].firstChild.data)
-#         y1 = int(bndbox.getElementsByTagName('ymin')[0].firstChild.data)
-#         x2 = int(bndbox.getElementsByTagName('xmax')[0].firstChild.data)
-#         y2 = int(bndbox.getElementsByTagName('ymax')[0].firstChild.data)
-#         gt_one = [label, x1, y1, x2, y2]
-#         gts.append(gt_one)
-#     return gts
 def main():
     args=parse_args()
-    #make_ground_truth_txt(args.annotations_path, args.ground_truth_path)
-    #parse_json_to_txt(args.annotations_path, args.ground_truth_path)
+    make_ground_truth_txt(args.annotations_path, args.ground_truth_path)
+    parse_json_to_txt(args.annotations_path, args.ground_truth_path) #将ground truth的annotation转化为txt
     print('置信度阈值为：{}'.format(args.confidence_th))
     make_detection_txt(args.annotations_path, args.detection_path)
-    parse_csv_to_txt(args.detect_result_csv_path, args.detection_path,args.confidence_th)
+    parse_csv_to_txt(args.detect_result_csv_path, args.detection_path,args.confidence_th) #将检测结果的csv文件转化为txt
 
 if __name__ == "__main__":
     main()
