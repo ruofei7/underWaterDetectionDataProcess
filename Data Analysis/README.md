@@ -1,5 +1,3 @@
-![image](https://github.com/Ruofei520/underWaterDetectionDataProcess/blob/master/Images/mapTestResult.png)
-
 # 对训练集数据进行分析：
 
 xml_to_json.py 将官方给的xml文件转化为json标注文件。
