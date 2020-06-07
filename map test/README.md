@@ -6,4 +6,4 @@
  大部分情况下，会对很多个epoch的检测结果进行评测，每个都这个弄比较麻烦，因此可以用validate_per_epoch.py对多个结果进行评测。
 
 检测结果图：
-[image](https://github.com/Ruofei520/underWaterDetectionDataProcess/blob/master/Images/mapTestResult.png)
+![image](https://github.com/Ruofei520/underWaterDetectionDataProcess/blob/master/Images/mapTestResult.png)
